@@ -1,0 +1,46 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  margin-left: 15px;
+}
+
+.form_phonebook {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+}
+
+.input_form_phonebook {
+  width: 150px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.button_form_phonebook {
+  margin-top: 25px;
+  width: 35%;
+  border-radius: 5px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.page_find_contacts {
+  margin: 0;
+}
+
+.input_find_contacts {
+  margin-left: 2px;
+}
