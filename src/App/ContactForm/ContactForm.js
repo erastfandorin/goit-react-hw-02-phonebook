@@ -48,6 +48,7 @@ class ContactForm extends Component {
           value={name}
           id={this.labelNameId}
           onChange={this.handleChange}
+          required
         />
         <label htmlFor={this.labelNumberId}>Number</label>
         <input
@@ -57,6 +58,7 @@ class ContactForm extends Component {
           value={number}
           id={this.labelNumberId}
           onChange={this.handleChange}
+          required
         />
         <button className={style.button_form_phonebook}>Add contact</button>
       </form>
