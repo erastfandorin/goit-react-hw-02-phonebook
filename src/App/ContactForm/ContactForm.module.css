@@ -1,0 +1,21 @@
+.formPhonebook {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+}
+
+.inputFormPhonebook {
+  width: 150px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.buttonFormPhonebook {
+  margin-top: 25px;
+  width: 35%;
+  border-radius: 5px;
+  background-color: white;
+  cursor: pointer;
+}

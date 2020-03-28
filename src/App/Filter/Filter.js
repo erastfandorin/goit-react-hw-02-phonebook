@@ -1,13 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { pageFindContacts, inputFindContacts } from './Filter.module.css';
 
-const Filter = ({ style, filter, contacts, handleChange }) => {
+const Filter = ({ filter, contacts, handleChange }) => {
   return (
     contacts.length > 2 && (
       <>
-        <p className={style.page_find_contacts}>Find contacts by name</p>
+        <p className={pageFindContacts}>Find contacts by name</p>
         <input
-          className={style.input_find_contacts}
+          className={inputFindContacts}
           type="text"
           name="filter"
           value={filter}
@@ -19,10 +20,9 @@ const Filter = ({ style, filter, contacts, handleChange }) => {
 };
 
 Filter.propTypes = {
-  style: PropTypes.object.isRequired,
   filter: PropTypes.string.isRequired,
-  contacts: PropTypes.array.isRequired,
-  handleChange: PropTypes.func.isRequired
+  contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
+  handleChange: PropTypes.func.isRequired,
 };
 
 export default Filter;

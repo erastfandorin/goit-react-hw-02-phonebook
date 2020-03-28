@@ -1,6 +1,6 @@
-import React from "react";
-import Contact from "./Contact/Contact";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Contact from './Contact/Contact';
 
 const ContactList = ({ contacts, filterContacts, deleteContact }) => {
   return (
@@ -19,9 +19,9 @@ const ContactList = ({ contacts, filterContacts, deleteContact }) => {
 };
 
 ContactList.propTypes = {
-  contacts: PropTypes.array.isRequired,
-  filterContacts: PropTypes.array.isRequired,
-  deleteContact: PropTypes.func.isRequired
+  contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
+  filterContacts: PropTypes.arrayOf(PropTypes.object).isRequired,
+  deleteContact: PropTypes.func.isRequired,
 };
 
 export default ContactList;
