@@ -1,7 +1,22 @@
-.pageFindContacts {
+.findContacts {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  margin-top: 23px;
+  padding: 10px;
+  border-radius: 1px;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.5);
+}
+
+.findContactsParagraph {
   margin: 0;
 }
 
-.inputFindContacts {
-  margin-left: 2px;
+.findContactsInput {
+  height: 40px;
+  margin-bottom: 6px;
+  padding: 5px;
+  border: 1px solid #7d847d;
+  border-radius: 4px;
+  outline: none;
 }

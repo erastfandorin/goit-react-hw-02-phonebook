@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import v4 from 'uuid/v4';
+import toastr from 'toastr/toastr';
+import 'toastr/build/toastr.css';
 import PropTypes from 'prop-types';
 import {
   formPhonebook,
-  inputFormPhonebook,
-  buttonFormPhonebook,
+  formPhonebookLable,
+  formPhonebookInput,
+  formPhonebookButton,
 } from './ContactForm.module.css';
 
 const INITIAL_STATE = {
@@ -36,7 +39,25 @@ class ContactForm extends Component {
 
       this.reset();
     } else {
-      alert(`${name}is already in contacts.`);
+      toastr.error(`${name}is already in contacts.`);
+
+      toastr.options = {
+        closeButton: false,
+        debug: false,
+        newestOnTop: false,
+        progressBar: true,
+        positionClass: 'toast-top-right',
+        preventDuplicates: false,
+        onclick: null,
+        showDuration: '40000',
+        hideDuration: '2000',
+        timeOut: '250',
+        extendedTimeOut: '1000',
+        showEasing: 'swing',
+        hideEasing: 'swing',
+        showMethod: 'fadeIn',
+        hideMethod: 'fadeOut',
+      };
     }
   };
 
@@ -49,10 +70,10 @@ class ContactForm extends Component {
 
     return (
       <form className={formPhonebook} onSubmit={this.handleSubmit}>
-        <label htmlFor="formPhonebookName">
+        <label className={formPhonebookLable} htmlFor="formPhonebookName">
           Name
           <input
-            className={inputFormPhonebook}
+            className={formPhonebookInput}
             type="text"
             name="name"
             value={name}
@@ -62,10 +83,10 @@ class ContactForm extends Component {
           />
         </label>
 
-        <label htmlFor="formPhonebookNumber">
+        <label className={formPhonebookLable} htmlFor="formPhonebookNumber">
           Number
           <input
-            className={inputFormPhonebook}
+            className={formPhonebookInput}
             type="number"
             name="number"
             value={number}
@@ -75,7 +96,7 @@ class ContactForm extends Component {
           />
         </label>
 
-        <button type="submit" className={buttonFormPhonebook}>
+        <button type="submit" className={formPhonebookButton}>
           Add contact
         </button>
       </form>

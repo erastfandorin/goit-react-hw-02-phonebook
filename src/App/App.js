@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { CSSTransition } from 'react-transition-group';
 import ContactForm from './ContactForm/ContactForm';
 import Filter from './Filter/Filter';
 import ContactList from './ContactList/ContactList';
 import { logoPhonebook } from './App.module.css';
+import slideLogo from './transition/slideLogo.module.css';
 
 class App extends Component {
   constructor() {
@@ -11,6 +13,7 @@ class App extends Component {
     this.state = {
       contacts: [],
       filter: '',
+      load: false,
     };
   }
 
@@ -23,6 +26,7 @@ class App extends Component {
         return { contacts: newArray };
       });
     }
+    this.ready();
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -31,6 +35,10 @@ class App extends Component {
       localStorage.setItem('contacts', JSON.stringify(contacts));
     }
   }
+
+  ready = () => {
+    this.setState(() => ({ load: true }));
+  };
 
   handleChange = ({ target }) => {
     this.setState({ [target.name]: target.value });
@@ -44,7 +52,7 @@ class App extends Component {
 
   addContact = newContact => {
     this.setState(({ contacts }) => {
-      const newArray = [...contacts, newContact];
+      const newArray = [newContact, ...contacts];
       return { contacts: newArray };
     });
   };
@@ -56,13 +64,15 @@ class App extends Component {
   };
 
   render() {
-    const { contacts, filter } = this.state;
+    const { contacts, filter, load } = this.state;
     const filterContacts = this.filterContacts(contacts, filter);
+
     return (
       <>
-        <h1 className={logoPhonebook}>Phonebook</h1>
+        <CSSTransition in={load} timeout={500} classNames={slideLogo}>
+          <h1 className={logoPhonebook}>Phonebook</h1>
+        </CSSTransition>
         <ContactForm contacts={contacts} addContact={this.addContact} />
-        <h2>Contacts</h2>
         <Filter
           filter={filter}
           contacts={contacts}

@@ -1,21 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { pageFindContacts, inputFindContacts } from './Filter.module.css';
+import { CSSTransition } from 'react-transition-group';
+import fade from '../transition/fade.module.css';
+import {
+  findContacts,
+  findContactsParagraph,
+  findContactsInput,
+} from './Filter.module.css';
 
 const Filter = ({ filter, contacts, handleChange }) => {
   return (
-    contacts.length > 2 && (
-      <>
-        <p className={pageFindContacts}>Find contacts by name</p>
+    <CSSTransition
+      in={contacts.length > 2}
+      timeout={250}
+      classNames={fade}
+      unmountOnExit
+    >
+      <div className={findContacts}>
+        <p className={findContactsParagraph}>Find contacts by name</p>
         <input
-          className={inputFindContacts}
+          className={findContactsInput}
           type="text"
           name="filter"
           value={filter}
           onChange={handleChange}
         />
-      </>
-    )
+      </div>
+    </CSSTransition>
   );
 };
 
