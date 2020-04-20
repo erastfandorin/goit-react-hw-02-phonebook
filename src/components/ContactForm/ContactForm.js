@@ -39,7 +39,7 @@ class ContactForm extends Component {
 
       this.reset();
     } else {
-      toastr.error(`${name}is already in contacts.`);
+      toastr.error(`${name} is already in contacts.`);
 
       toastr.options = {
         closeButton: false,

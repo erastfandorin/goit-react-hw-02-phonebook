@@ -11,7 +11,7 @@ import {
 const Filter = ({ filter, contacts, handleChange }) => {
   return (
     <CSSTransition
-      in={contacts.length > 2}
+      in={contacts.length > 1}
       timeout={250}
       classNames={fade}
       unmountOnExit
