@@ -8,7 +8,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  addContact: newContact => dispatch(contactAction.addContact(newContact)),
   addContactWithLocalhost: arrayContacts =>
     dispatch(contactAction.addContactWithLocalhost(arrayContacts)),
   deleteContact: id => dispatch(contactAction.deleteContact(id)),

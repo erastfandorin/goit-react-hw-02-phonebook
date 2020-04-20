@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { CSSTransition } from 'react-transition-group';
-import ContactForm from './ContactForm/ContactForm';
-import Filter from './Filter/Filter';
-import ContactList from './ContactList/ContactList';
+import ContactFormContainer from './ContactForm/ContactFormContainer';
+import FilterContainer from './Filter/FilterContainer';
+import ContactListContainer from './ContactList/ContactListContainer';
 import { logoPhonebook } from './App.module.css';
 import slideLogo from './transition/slideLogo.module.css';
 
@@ -43,7 +43,7 @@ class App extends Component {
   };
 
   render() {
-    const { contacts, filter, addContact, deleteContact } = this.props;
+    const { contacts, filter } = this.props;
 
     return (
       <>
@@ -54,16 +54,10 @@ class App extends Component {
         >
           <h1 className={logoPhonebook}>Phonebook</h1>
         </CSSTransition>
-        <ContactForm contacts={contacts} addContact={addContact} />
-        <Filter
-          filter={filter}
-          contacts={contacts}
-          handleChange={this.handleChange}
-        />
-        <ContactList
-          contacts={contacts}
+        <ContactFormContainer />
+        <FilterContainer handleChange={this.handleChange} />
+        <ContactListContainer
           filterContacts={this.filterContacts(contacts, filter)}
-          deleteContact={deleteContact}
         />
       </>
     );
@@ -73,8 +67,6 @@ class App extends Component {
 App.propTypes = {
   addContactWithLocalhost: PropTypes.func.isRequired,
   changeFilter: PropTypes.func.isRequired,
-  addContact: PropTypes.func.isRequired,
-  deleteContact: PropTypes.func.isRequired,
   contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
   filter: PropTypes.string.isRequired,
 };
