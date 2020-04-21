@@ -5,11 +5,11 @@ import Contact from './Contact/Contact';
 import slide from '../transition/slide.module.css';
 import { contactList } from './ContactList.module.css';
 
-const ContactList = ({ contacts, filterContacts, deleteContact }) => {
+const ContactList = ({ contacts, filteredContacts, deleteContact }) => {
   return (
     contacts.length > 0 && (
       <TransitionGroup className={contactList} component="ul">
-        {filterContacts.map(contact => (
+        {filteredContacts.map(contact => (
           <CSSTransition
             classNames={slide}
             key={contact.id}
@@ -29,7 +29,7 @@ const ContactList = ({ contacts, filterContacts, deleteContact }) => {
 
 ContactList.propTypes = {
   contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
-  filterContacts: PropTypes.arrayOf(PropTypes.object).isRequired,
+  filteredContacts: PropTypes.arrayOf(PropTypes.object).isRequired,
   deleteContact: PropTypes.func.isRequired,
 };
 

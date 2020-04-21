@@ -17,7 +17,7 @@ class App extends Component {
     if (parseContacts) {
       addContactWithLocalhost(parseContacts);
     }
-    this.ready();
+    this.loadLogo = true;
   }
 
   componentDidUpdate(prevProps) {
@@ -27,24 +27,7 @@ class App extends Component {
     }
   }
 
-  ready = () => {
-    this.loadLogo = true;
-  };
-
-  handleChange = ({ target }) => {
-    const { changeFilter } = this.props;
-    changeFilter(target.value);
-  };
-
-  filterContacts = (contacts, filter) => {
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(filter.toLowerCase()),
-    );
-  };
-
   render() {
-    const { contacts, filter } = this.props;
-
     return (
       <>
         <CSSTransition
@@ -55,10 +38,8 @@ class App extends Component {
           <h1 className={logoPhonebook}>Phonebook</h1>
         </CSSTransition>
         <ContactFormContainer />
-        <FilterContainer handleChange={this.handleChange} />
-        <ContactListContainer
-          filterContacts={this.filterContacts(contacts, filter)}
-        />
+        <FilterContainer />
+        <ContactListContainer />
       </>
     );
   }
@@ -66,9 +47,7 @@ class App extends Component {
 
 App.propTypes = {
   addContactWithLocalhost: PropTypes.func.isRequired,
-  changeFilter: PropTypes.func.isRequired,
   contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
-  filter: PropTypes.string.isRequired,
 };
 
 export default App;

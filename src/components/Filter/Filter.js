@@ -8,7 +8,10 @@ import {
   findContactsInput,
 } from './Filter.module.css';
 
-const Filter = ({ filter, contacts, handleChange }) => {
+const Filter = ({ filter, contacts, changeFilter }) => {
+  const handleChange = ({ target }) => {
+    changeFilter(target.value);
+  };
   return (
     <CSSTransition
       in={contacts.length > 1}
@@ -33,7 +36,7 @@ const Filter = ({ filter, contacts, handleChange }) => {
 Filter.propTypes = {
   filter: PropTypes.string.isRequired,
   contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
-  handleChange: PropTypes.func.isRequired,
+  changeFilter: PropTypes.func.isRequired,
 };
 
 export default Filter;

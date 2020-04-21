@@ -1,17 +1,15 @@
 import { connect } from 'react-redux';
 import * as contactAction from '../redux/contactsActions';
+import * as contactsSelectors from '../redux/contactsSelectors';
 import App from './App';
 
 const mapStateToProps = state => ({
-  contacts: state.phoneBook.contacts,
-  filter: state.phoneBook.filter,
+  contacts: contactsSelectors.getContacts(state),
 });
 
 const mapDispatchToProps = dispatch => ({
   addContactWithLocalhost: arrayContacts =>
     dispatch(contactAction.addContactWithLocalhost(arrayContacts)),
-  deleteContact: id => dispatch(contactAction.deleteContact(id)),
-  changeFilter: findValue => dispatch(contactAction.changeFilter(findValue)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
