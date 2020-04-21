@@ -1,26 +1,8 @@
-export const Type = {
-  ADD_CONTACT: 'ADD_CONTACT',
-  ADD_CONTACT_WITH_LOCALHOST: 'ADD_CONTACT_WITH_LOCALHOST',
-  DELETE_CONTACT: 'DELETE_CONTACT',
-  CHANGE_FILTER: 'CHANGE_FILTER',
-};
+import { createAction } from '@reduxjs/toolkit';
 
-export const addContact = newContact => ({
-  type: Type.ADD_CONTACT,
-  payload: newContact,
-});
-
-export const addContactWithLocalhost = arrayContacts => ({
-  type: Type.ADD_CONTACT_WITH_LOCALHOST,
-  payload: arrayContacts,
-});
-
-export const deleteContact = id => ({
-  type: Type.DELETE_CONTACT,
-  payload: id,
-});
-
-export const changeFilter = findValue => ({
-  type: Type.CHANGE_FILTER,
-  payload: findValue,
-});
+export const addContact = createAction('phonebook/addContact');
+export const addContactWithLocalhost = createAction(
+  'phonebook/addContactWithLocalhost',
+);
+export const deleteContact = createAction('phonebook/deleteContact');
+export const changeFilter = createAction('phonebook/changeFilter');
