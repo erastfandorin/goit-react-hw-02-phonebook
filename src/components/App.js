@@ -17,6 +17,15 @@ class App extends Component {
     if (parseContacts) {
       addContactWithLocalhost(parseContacts);
     }
+    // addTestContacts
+    const testContacts = [
+      { id: 1, name: 'Volodymyr Zelensky', number: '+380 (44) 255–70–42' },
+      { id: 2, name: 'Vitali Klitschko', number: '+380 (44) 202-75-94' },
+    ];
+    if (localStorage.getItem('teatContactOn') !== 'true') {
+      addContactWithLocalhost(testContacts);
+      localStorage.setItem('teatContactOn', true);
+    }
     this.loadLogo = true;
   }
 

@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
 import * as contactsActions from './contactsActions';
 
-const contactsReducer = createReducer([{ id: 1, name: 'lol', number: '999' }], {
+const contactsReducer = createReducer([], {
   [contactsActions.addContact]: (state, action) => [action.payload, ...state],
   [contactsActions.addContactWithLocalhost]: (state, action) => [
     ...action.payload,
