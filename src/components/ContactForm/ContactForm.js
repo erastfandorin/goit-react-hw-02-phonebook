@@ -87,7 +87,7 @@ class ContactForm extends Component {
           Number
           <input
             className={formPhonebookInput}
-            type="number"
+            type="text"
             name="number"
             value={number}
             id="formPhonebookNumber"
