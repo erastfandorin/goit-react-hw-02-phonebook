@@ -1,6 +1,6 @@
 ## An application for saving useful contacts
 
-[Imgur](https://i.imgur.com/ZLrm0Bc.gifv)
+![](https://i.imgur.com/ZLrm0Bc.gifv)
 
 You can use this phone book
 [here](https://erastfandorin.github.io/goit-react-hw-02-phonebook/) Manage your
